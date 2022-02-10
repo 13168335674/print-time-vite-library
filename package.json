@@ -1,0 +1,23 @@
+{
+  "name": "print-time-vite-library",
+  "description": "adi print time vite library.",
+  "private": true,
+  "license": "MIT",
+  "author": "adi",
+  "homepage": "https://13168335674.github.io/print-time-vite-library/",
+  "bugs": "https://github.com/13168335674/print-time-vite-library/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/13168335674/print-time-vite-library.git"
+  },
+
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0"
+  }
+}
