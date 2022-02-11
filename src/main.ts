@@ -1,8 +1,38 @@
-import './style.css'
+import { toLocaleString } from "./utils/helper";
+import { IOptions } from "./utils/types";
+import "./style.css";
+class PrintTime {
+  private options: IOptions;
+  private timer: NodeJS.Timeout | undefined;
+  constructor(opts: IOptions) {
+    const defaultOptions: IOptions = {
+      targetEl: "#app",
+    };
+    this.options = Object.assign({}, defaultOptions, opts);
 
-const app = document.querySelector<HTMLDivElement>('#app')!
+    this.init();
+  }
+  private init(): void {
+    const { targetEl } = this.options;
+    const app = document.querySelector<HTMLDivElement>(targetEl);
+    if (!app) {
+      console.error(`${targetEl} 元素不存在.`);
+      return;
+    }
+    this.timer = this.setAppContent(app);
+  }
+  private setAppContent(app: HTMLDivElement): NodeJS.Timeout {
+    return setInterval(() => {
+      app.innerHTML = `
+      <h1>Hello ADI!</h1>
+      <p>${toLocaleString()}</p>
+    `;
+    }, 1000);
+  }
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+  public destroy(): void {
+    this.timer && clearInterval(this.timer);
+  }
+}
+
+export default PrintTime;

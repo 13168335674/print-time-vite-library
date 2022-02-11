@@ -10,14 +10,18 @@
     "type": "git",
     "url": "https://github.com/13168335674/print-time-vite-library.git"
   },
-
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "vite --config config/vite.config.ts",
+    "build": "vite build --config config/vite.config.ts",
+    "dev:ex": "vite --config config/vite.config.ex.ts",
+    "build:ex": "vite build --config config/vite.config.ex.ts",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^17.0.17",
+    "sass": "^1.49.7",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
-  }
+  },
+  "dependencies": {}
 }
